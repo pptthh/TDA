@@ -1,5 +1,8 @@
 # dependencies
 node_modules
+generated
+debug
+prod
 
 **/*.log
 **/*.tmp

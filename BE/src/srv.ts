@@ -1,5 +1,5 @@
-import express, { Request, Response, NextFunction } from 'express';
 import fs from 'fs';
+import express, { Request, Response, NextFunction } from 'express';
 
 const LOG_FILE_NAME = '../Access.log';
 const writeToFile = (logData: string, cb: Function) => (

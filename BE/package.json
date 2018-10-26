@@ -2,14 +2,15 @@
   "name": "express-rest-srv",
   "version": "1.0.0",
   "description": "express rest srv, to store todo nodes",
-  "main": "srv.js",
+  "main": "src/srv.ts",
   "scripts": {
-    "startOldWay": "node starter.js",
-    "startOldWay2": "nodemon starter.js",
-    "compile": "tsc && node srv.js",
-    "start": "nodemon srv.js -e ts  --exec \"npm run compile\" || exit 1",
-    "tsc": "tsc",
+    "compile": "tsc && node debug/src/srv.js",
+    "start": "nodemon debug/src/srv.js -e ts --exec \"npm run compile\" || exit 1",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "nodemonConfig": {
+    "ignore": "debug/",
+    "delay": "500"
   },
   "author": "",
   "license": "ISC",
