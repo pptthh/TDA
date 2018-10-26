@@ -9,7 +9,7 @@ const writeToFile = (logData: string, cb: Function) => (
 const safeDbQuote = (s: string) => s && s.replace(/\\/g, '\\x5C').replace(/"/, '\\x22');
 const getXIP = (r: Request) => safeDbQuote((r.headers['x-real-ip'] || r.headers['x-forwarded-for']) as string) || '';
 const getIP = (r: Request) => getXIP(r) ? r.connection.remoteAddress + '\txpi:' +  getXIP(r) : r.connection.remoteAddress;
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4444;
 const DELAY = 500;
 const N = '\n';
 const T = '\t';
