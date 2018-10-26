@@ -8,3 +8,4 @@
 - edit item
 - mark done
 - store on back-end
+- build automation / testing / code coverage put together
