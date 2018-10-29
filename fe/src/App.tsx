@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './App.css';
-import logo from './logo.svg';
 import Button from './component/Button';
+import logo from './logo.svg';
 import { NOOP } from './util/util';
 
 const App = () =>
