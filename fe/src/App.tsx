@@ -1,10 +1,10 @@
 import * as React from 'react';
 import './App.css';
 import Button from './component/Button';
-import Label from './component/Label/Label';
-import List, { IList } from './component/List/list';
+import Label from './component/Label';
+import List, { IList } from './component/List';
 import logo from './logo.svg';
-import { LOG } from './util/util';
+import { LOG } from './Util/util';
 
 const listData: IList = {
   list: [

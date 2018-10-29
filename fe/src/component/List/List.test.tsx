@@ -2,7 +2,7 @@ import { configure, render } from 'enzyme';
 import * as ReactSixteenAdapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
 import * as React from 'react';
-import List from './list';
+import List from '.';
 
 configure({adapter: new ReactSixteenAdapter()});
 
