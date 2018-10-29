@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 export interface IButton {
-    name: string;
+    name?: string;
     label: string;
     title?: string;
     onClick: React.MouseEventHandler<HTMLSpanElement>;
