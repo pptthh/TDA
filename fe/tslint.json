@@ -65,7 +65,7 @@
       "timeEnd",
       "trace"
     ],
-    "array-type": true,
+    "array-type": [true, "array"],
     "only-arrow-functions": true,
     "no-consecutive-blank-lines": true,
     "no-construct": true,
