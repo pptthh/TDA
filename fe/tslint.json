@@ -104,6 +104,9 @@
       "check-operator",
       "check-separator",
       "check-type",
+      "check-type-operator",
+      "check-rest-spread",
+      "check-preblock",
       "check-typecast"
     ],
     "ban-types": false
