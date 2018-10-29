@@ -72,7 +72,7 @@
     ],
     "one-variable-per-declaration": false,
     "prefer-const": false,
-    "quotemark": [ true, "single", "jsx-double" ],
+    "quotemark": [ true, "single", "jsx-single", "avoid-escape" ],
     "radix": true,
     "semicolon": [ true, "always" ],
     "switch-default": true,
@@ -94,7 +94,8 @@
       "ban-keywords",
       "check-format",
       "allow-leading-underscore",
-      "allow-pascal-case"],
+      "allow-pascal-case"
+    ],
     "whitespace": [
       true,
       "check-branch",
