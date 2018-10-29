@@ -1,8 +1,17 @@
 import * as React from 'react';
 import './App.css';
 import Button from './component/Button';
+import Label from './component/Label/Label';
+import List, { IList } from './component/List/list';
 import logo from './logo.svg';
-import { NOOP } from './util/util';
+import { LOG } from './util/util';
+
+const listData: IList = {
+  list: [
+    {text: 'text', time: 0},
+    {text: 'text2', time: 123456798},
+  ],
+};
 
 const App = () =>
 <div className='App'>
@@ -13,8 +22,13 @@ const App = () =>
   <p className='App-intro'>
     To get started, edit <code>src/App.tsx</code> and save to reload.
     If you havent don it yet. <br />
-    <Button name='button' label='button' onClick={NOOP}/>
   </p>
+  <hr/>
+  <Label>test text</Label>
+  <hr/>
+  <Button name='button' label='test button' onClick={() => LOG('test button onClicked')}/>
+  <hr/>
+  <List list={listData.list}/>
 </div>;
 
 export default App;
