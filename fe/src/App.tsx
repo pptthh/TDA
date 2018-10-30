@@ -31,7 +31,7 @@ const App = () =>
   <hr/>
   <List list={listData.list}/>
   <hr/>
-  <TextInput />
+  <TextInput placeholder='placeholder' name='name'/>
   <hr/>
 </div>;
 

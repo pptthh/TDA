@@ -4,6 +4,7 @@ export interface ITextInput {
     name?: string;
     value?: string;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    placeholder?: string;
 }
 
 // const TextInput = ({name, value, onChange}: ITextInput): JSX.Element =>
