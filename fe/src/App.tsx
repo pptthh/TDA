@@ -3,6 +3,7 @@ import './App.css';
 import Button from './component/Button';
 import Label from './component/Label';
 import List, { IList } from './component/List';
+import TextInput from './component/TextInput';
 import logo from './logo.svg';
 import { LOG } from './Util';
 
@@ -29,6 +30,9 @@ const App = () =>
   <Button name='button' label='test button' onClick={() => LOG('test button onClicked')}/>
   <hr/>
   <List list={listData.list}/>
+  <hr/>
+  <TextInput />
+  <hr/>
 </div>;
 
 export default App;
