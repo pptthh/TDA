@@ -3,7 +3,7 @@ import * as ReactSixteenAdapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
 import * as React from 'react';
 import Button from '.';
-import { NOOP } from '../../Util/util';
+import { NOOP } from '../../Util';
 
 configure({adapter: new ReactSixteenAdapter()});
 

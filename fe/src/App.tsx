@@ -4,7 +4,7 @@ import Button from './component/Button';
 import Label from './component/Label';
 import List, { IList } from './component/List';
 import logo from './logo.svg';
-import { LOG } from './Util/util';
+import { LOG } from './Util';
 
 const listData: IList = {
   list: [
