@@ -4,6 +4,7 @@ import Button from './component/Button';
 import Label from './component/Label';
 import List, { IList } from './component/List';
 import TextInput from './component/TextInput';
+import AddNote from './elements/AddNote';
 import logo from './logo.svg';
 import { LOG } from './Util';
 
@@ -32,6 +33,8 @@ const App = () =>
   <List list={listData.list}/>
   <hr/>
   <TextInput placeholder='placeholder' name='name'/>
+  <hr/>
+  <AddNote/>
   <hr/>
 </div>;
 
