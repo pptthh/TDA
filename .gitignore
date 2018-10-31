@@ -8,6 +8,7 @@
 # production
 node_modules
 generated
+coverage
 debug
 prod
 
