@@ -7,8 +7,7 @@ export interface ITextInput {
     placeholder?: string;
 }
 
-// const TextInput = ({name, value, onChange}: ITextInput): JSX.Element =>
 const TextInput = (props: ITextInput): JSX.Element =>
-<input type='text' className='TextInput' {...props}/>;
+    <input type='text' className='TextInput' {...props}/>;
 
 export default TextInput;
