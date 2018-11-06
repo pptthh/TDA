@@ -9,5 +9,5 @@ export default Actions;
 
 export interface IActions<T> {
     type: Actions;
-    payload: T;
+    payload?: T;
 }
