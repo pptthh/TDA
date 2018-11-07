@@ -2,7 +2,7 @@ import Actions, { IActions } from 'src/actions';
 import { CHK, LOG } from 'src/utils';
 import IAddNoteState from './state';
 
-const init: IAddNoteState = {
+export const init: IAddNoteState = {
     text: '',
 };
 
@@ -13,6 +13,7 @@ export const onClick = (data: string): IActions<string> =>
     ({type: Actions.ADD_TODO, payload: data});
 
 const AddNoteReducer = (state: IAddNoteState = init, action: IActions<string>): IAddNoteState => {
+    LOG(action.payload, '\t', action.type, 'AddNoteReducer');
     switch (action.type) {
         case Actions.TEXT_CHANGED: {
             return {
@@ -21,7 +22,6 @@ const AddNoteReducer = (state: IAddNoteState = init, action: IActions<string>): 
             };
         }
         case Actions.ADD_TODO: {
-            LOG(action.payload);
             return {
                 ...state,
             };

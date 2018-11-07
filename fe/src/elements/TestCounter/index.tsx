@@ -3,8 +3,8 @@ import Button from 'src/component/Button';
 
 interface ITestCounter {
     counter: number;
-    increment: () => void;
-    decrement: () => void;
+    increment: (data: number) => void;
+    decrement: (data: number) => void;
 }
 
 const TestCounter = ({
@@ -13,9 +13,9 @@ const TestCounter = ({
     decrement,
 }: ITestCounter) =>
     <div className='testCounter'>
-        <Button label='+' onClick={increment}/>
+        <Button label='+' onClick={() => increment(counter)}/>
         {counter}
-        <Button label='-' onClick={decrement}/>
+        <Button label='-' onClick={() => decrement(counter)}/>
     </div>;
 
 export default TestCounter;

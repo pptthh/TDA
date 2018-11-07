@@ -11,8 +11,8 @@ export const CHK = {
         }
         throw new Error('boolean casting failed');
     },
-    num: (n: unknown): number => {
-        if (typeof n === 'number') {
+    int: (n: unknown): number => {
+        if (typeof n === 'number' && Number.isInteger(n)) {
             return n as number;
         }
         throw new Error('number casting failed');

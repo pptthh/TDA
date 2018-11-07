@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Provider } from 'react-redux';
+import Actions from './actions';
 import Button from './component/Button';
 import Label from './component/Label';
 import List, { IList } from './component/List';
@@ -17,6 +18,8 @@ const listData: IList = {
         {text: 'text2', time: 123456798},
     ],
 };
+
+store.dispatch({type: Actions.INIT});
 
 const App = () =>
 <div className='App'>
