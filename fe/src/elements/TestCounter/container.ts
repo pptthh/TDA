@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import IState from 'src/state';
 import TestCounter from '.';
+import IState from '../../state';
 import { decrement, increment } from './reducer';
 
 const mapStateToProps = (state: IState) => state.counterState;

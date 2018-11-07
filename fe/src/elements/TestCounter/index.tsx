@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Button from 'src/component/Button';
+import Button from '../../component/Button';
 import ICounterState from './state';
 
 interface ITestCounter extends ICounterState {

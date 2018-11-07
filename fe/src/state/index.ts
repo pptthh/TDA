@@ -1,5 +1,5 @@
-import IAddNoteState from 'src/elements/AddNote/state';
-import ICounterState from 'src/elements/TestCounter/state';
+import IAddNoteState from '../elements/AddNote/state';
+import ICounterState from '../elements/TestCounter/state';
 
 interface IState {
     counterState: ICounterState;

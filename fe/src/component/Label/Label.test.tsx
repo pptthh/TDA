@@ -2,7 +2,7 @@ import { configure, render, shallow } from 'enzyme';
 import * as ReactSixteenAdapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
 import * as React from 'react';
-import Label from '.';
+import Label from './index';
 
 configure({adapter: new ReactSixteenAdapter()});
 

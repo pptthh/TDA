@@ -1,5 +1,5 @@
-import Actions, { IActions } from 'src/actions';
-import { CHK, LOG } from 'src/utils';
+import Actions, { IActions } from '../../actions';
+import { CHK, LOG } from '../../utils';
 import IAddNoteState from './state';
 
 const init: IAddNoteState = {
