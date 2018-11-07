@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 import Button from './component/Button';
 import Label from './component/Label';
 import List, { IList } from './component/List';
@@ -8,11 +7,9 @@ import TextInput from './component/TextInput';
 import AddNote from './elements/AddNote';
 import TestCounterContainer from './elements/TestCounter/container';
 import logo from './logo.svg';
-import reducers from './reducers';
+import store from './reducers/store';
 import './Test.css';
-import { LOG } from './Util';
-
-const store = createStore(reducers); // rootReducer
+import { LOG } from './utils';
 
 const listData: IList = {
     list: [

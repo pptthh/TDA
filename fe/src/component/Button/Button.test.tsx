@@ -2,8 +2,8 @@ import { configure, render, shallow } from 'enzyme';
 import * as ReactSixteenAdapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
 import * as React from 'react';
+import { NOOP } from 'src/utils';
 import Button from '.';
-import { NOOP } from '../../Util';
 
 configure({adapter: new ReactSixteenAdapter()});
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { NOOP } from '../../Util';
+import { NOOP } from 'src/utils';
 
 export interface ILabel {
     elementClass?: string;

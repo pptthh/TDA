@@ -1,7 +1,7 @@
 import * as React from 'react';
+import { LOG } from 'src/utils';
 import Button from '../../component/Button';
 import TextInput from '../../component/TextInput';
-import { LOG } from '../../Util';
 
 const AddNote = () =>
 <div className='AddNote'>
