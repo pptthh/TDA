@@ -1,8 +1,8 @@
 import * as React from 'react';
 import Button from 'src/component/Button';
+import ICounterState from './state';
 
-interface ITestCounter {
-    counter: number;
+interface ITestCounter extends ICounterState {
     increment: (data: number) => void;
     decrement: (data: number) => void;
 }

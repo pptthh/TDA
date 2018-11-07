@@ -3,6 +3,6 @@ import AddNoteReducer from 'src/elements/AddNote/reducer';
 import TestCounterReducer from 'src/elements/TestCounter/reducer';
 
 export default combineReducers({
-    AddNoteReducer,
-    TestCounterReducer,
+    addNoteState: AddNoteReducer,
+    counterState: TestCounterReducer,
 });

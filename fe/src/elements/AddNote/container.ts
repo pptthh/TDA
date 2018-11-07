@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import IState from 'src/state';
 import AddNote from '.';
-import { init, onChange, onClick } from './reducer';
+import { onChange, onClick } from './reducer';
 
-const mapStateToProps = (state: IState) => state.textInputState || init;
+const mapStateToProps = (state: IState) => state.textInputState;
 
 const mapDispatchToProps = (dispatch: Function) => ({
     onChange: (data: string) => dispatch(onChange(data)),
