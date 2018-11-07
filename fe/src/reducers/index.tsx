@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-// import todos from './todos';
-// import visibilityFilter from './visibilityFilter';
-​
+import AddNoteReducer from 'src/elements/AddNote/reducer';
+import TestCounterReducer from 'src/elements/TestCounter/reducer';
+
 export default combineReducers({
-//   todos,
-//   visibilityFilter,
+    AddNoteReducer,
+    TestCounterReducer,
 });

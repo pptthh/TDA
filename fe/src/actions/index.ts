@@ -3,6 +3,7 @@ enum Actions {
     INCREMENT_COUNTER = 'incrementCounter',
     DECREMENT_COUNTER = 'decrementCounter',
     TEXT_CHANGED = 'textChanged',
+    INIT = 'init',
 }
 
 export default Actions;

@@ -4,7 +4,7 @@ import Button from './component/Button';
 import Label from './component/Label';
 import List, { IList } from './component/List';
 import TextInput from './component/TextInput';
-import AddNote from './elements/AddNote';
+import AddNoteContainer from './elements/AddNote/container';
 import TestCounterContainer from './elements/TestCounter/container';
 import logo from './logo.svg';
 import store from './reducers/store';
@@ -38,7 +38,7 @@ const App = () =>
     <TextInput placeholder='placeholder' name='name'/>
     <hr/>
     <Provider store={store}>
-        <AddNote/>
+        <AddNoteContainer/>
     </Provider>
     <hr/>
     <Provider store={store}>

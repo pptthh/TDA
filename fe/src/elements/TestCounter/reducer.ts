@@ -1,7 +1,8 @@
 import Actions, { IActions } from 'src/actions';
+import { CHK } from 'src/utils';
 import ICounterState from './state';
 
-const defaultState: ICounterState = {
+const init: ICounterState = {
     counter: 0,
 };
 
@@ -11,18 +12,13 @@ export const increment = (data: number): IActions<number> =>
 export const decrement = (data: number): IActions<number> =>
     ({type: Actions.DECREMENT_COUNTER, payload: data --});
 
-const TestCounterReducer = (state: ICounterState = defaultState, action: IActions<unknown>): ICounterState => {
+const TestCounterReducer = (state: ICounterState = init, action: IActions<unknown>): ICounterState => {
     switch (action.type) {
+        case Actions.DECREMENT_COUNTER:
         case Actions.INCREMENT_COUNTER: {
             return {
                 ...state,
-                counter: state.counter + 1,
-            };
-        }
-        case Actions.DECREMENT_COUNTER: {
-            return {
-                ...state,
-                counter: state.counter - 1,
+                counter: CHK.num(action.payload),
             };
         }
     }

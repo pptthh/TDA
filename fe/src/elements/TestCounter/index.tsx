@@ -7,10 +7,14 @@ interface ITestCounter {
     decrement: () => void;
 }
 
-const TestCounter = ({counter, increment, decrement}: ITestCounter) =>
+const TestCounter = ({
+    counter,
+    increment,
+    decrement,
+}: ITestCounter) =>
     <div className='testCounter'>
         <Button label='+' onClick={increment}/>
-        ${counter}
+        {counter}
         <Button label='-' onClick={decrement}/>
     </div>;
 
