@@ -10,6 +10,7 @@ exports[`describe Button renders correctly with Label only 1`] = `
 
 exports[`describe Button shallow renders correctly with params 1`] = `
 <button
+  disabled={false}
   name="name"
   onClick={[Function]}
   title=""

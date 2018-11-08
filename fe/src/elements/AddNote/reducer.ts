@@ -18,6 +18,7 @@ const AddNoteReducer = (state: IAddNoteState = init, action: IActions<string>): 
         case Actions.ADD_TODO: {
             return {
                 ...state,
+                text: '',
             };
         }
     }

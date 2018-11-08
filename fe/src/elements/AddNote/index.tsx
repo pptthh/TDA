@@ -17,10 +17,11 @@ const AddNote = ({
     <TextInput
         placeholder='Add Note Here'
         onChange={ onChange }
-        value={text}
+        value={ text }
         />
     <Button
         label='Add Note'
+        disabled={ text.length === 0 }
         onClick={ onClick }
         />
 </div>;

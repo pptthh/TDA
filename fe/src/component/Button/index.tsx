@@ -4,14 +4,16 @@ export interface IButton {
     name?: string;
     label: string;
     title?: string;
+    disabled?: boolean;
     onClick: React.MouseEventHandler<HTMLSpanElement>;
 }
 
-const Button = ({name, label, onClick, title = ''}: IButton) =>
+const Button = ({disabled= false, name, label, onClick, title = ''}: IButton) =>
     <button
         name={name}
         title={title}
         onClick={onClick}
+        disabled={disabled}
         >{label}</button>;
 
 export default Button;

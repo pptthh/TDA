@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 import AddNote from '.';
 import IState from '../../state';
-import action from './action';
+import Action from './action';
 
 const mapStateToProps = (state: IState) => state.addNoteState;
 
 const mapDispatchToProps = (dispatch: Function) => ({
-    onChange: (data: React.ChangeEvent<HTMLInputElement>) => dispatch(action.onChange(data)),
-    onClick: () => dispatch(action.onClick()),
+    onChange: (data: React.ChangeEvent<HTMLInputElement>) => dispatch(Action.onChange(data)),
+    onClick: () => dispatch(Action.onClick()),
 });
 
 const AddNoteContainer = connect(
