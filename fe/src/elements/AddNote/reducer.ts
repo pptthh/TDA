@@ -6,12 +6,6 @@ const init: IAddNoteState = {
     text: '',
 };
 
-export const onChange = (data: string): IActions<string> =>
-    ({type: Actions.TEXT_CHANGED, payload: data});
-
-export const onClick = (data: string): IActions<string> =>
-    ({type: Actions.ADD_TODO, payload: data});
-
 const AddNoteReducer = (state: IAddNoteState = init, action: IActions<string>): IAddNoteState => {
     LOG('', action.payload, '\t', action.type, 'AddNoteReducer');
     switch (action.type) {

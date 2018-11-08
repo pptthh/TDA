@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 import TestCounter from '.';
 import IState from '../../state';
-import { decrement, increment } from './reducer';
+import action from './action';
 
 const mapStateToProps = (state: IState) => state.counterState;
 
 const mapDispatchToProps = (dispatch: Function) => ({
-    decrement: (data: number) => dispatch(decrement(data)),
-    increment: (data: number) => dispatch(increment(data)),
+    decrement: () => dispatch(action.decrement()),
+    increment: () => dispatch(action.increment()),
 });
 
 const TestCounterContainer = connect(
