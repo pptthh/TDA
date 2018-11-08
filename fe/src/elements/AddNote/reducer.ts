@@ -6,23 +6,28 @@ const init: IAddNoteState = {
     text: '',
 };
 
+const switchCase = {};
+
 const AddNoteReducer = (state: IAddNoteState = init, action: IActions<string>): IAddNoteState => {
     LOG('', action.payload, '\t', action.type, 'AddNoteReducer');
-    switch (action.type) {
-        case Actions.TEXT_CHANGED: {
-            return {
-                ...state,
-                text: CHK.str(action.payload),
-            };
-        }
-        case Actions.ADD_TODO: {
-            return {
-                ...state,
-                text: '',
-            };
-        }
+
+    switchCase[Actions.TEXT_CHANGED] = () => ({
+        ...state,
+        text: CHK.str(action.payload),
+    });
+
+    switchCase[Actions.ADD_TODO] = () => ({
+        ...state,
+        text: '',
+    });
+
+    try {
+        return switchCase[action.type]();
+    } catch (e) {
+        if (e instanceof TypeError) {
+            return state;
+        } else { throw(e); }
     }
-    return state;
 };
 
 export default AddNoteReducer;

@@ -11,11 +11,11 @@ export const CHK = {
         }
         throw new Error('boolean casting failed');
     },
-    int: (n: unknown): number => {debugger;
-                                  if (typeof n === 'number' && Number.isInteger(n)) {
+    int: (n: unknown): number => {
+        if (typeof n === 'number' && Number.isInteger(n)) {
             return n as number;
         }
-                                  throw new Error('number casting failed');
+        throw new Error('number casting failed');
     },
     str: (s: unknown): string => {
         if (typeof s === 'string') {
