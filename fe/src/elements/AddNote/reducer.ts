@@ -6,28 +6,34 @@ const init: IAddNoteState = {
     text: '',
 };
 
-const switchCase = {};
+interface IAddNoteSwtch {
+    state: IAddNoteState;
+    payload: unknown;
+}
 
-const AddNoteReducer = (state: IAddNoteState = init, action: IActions<string>): IAddNoteState => {
-    LOG('', action.payload, '\t', action.type, 'AddNoteReducer');
+const swtch = {
+    case: (state: IAddNoteState = init, {type, payload}: IActions<unknown>): IAddNoteState => {
+        LOG('', payload, '\t', type, 'TestCounterswtch');
+        try {
+            return swtch[type]({state, payload} as IAddNoteSwtch);
+        } catch (e) {
+            if (e instanceof TypeError) {
+                return state;
+            } else {
+                throw(e);
+            }
+        }
+    },
 
-    switchCase[Actions.TEXT_CHANGED] = () => ({
-        ...state,
-        text: CHK.str(action.payload),
-    });
+    [Actions.TEXT_CHANGED]: (prop: IAddNoteSwtch) => ({
+        ...prop.state,
+        text: CHK.str(prop.payload),
+    }),
 
-    switchCase[Actions.ADD_TODO] = () => ({
-        ...state,
+    [Actions.ADD_TODO]: (prop: IAddNoteSwtch) => ({
+        ...prop.state,
         text: '',
-    });
-
-    try {
-        return switchCase[action.type]();
-    } catch (e) {
-        if (e instanceof TypeError) {
-            return state;
-        } else { throw(e); }
-    }
+    }),
 };
 
-export default AddNoteReducer;
+export default swtch.case;
