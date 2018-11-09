@@ -6,16 +6,23 @@ const init: IAddNoteState = {
     text: '',
 };
 
-interface IAddNoteSwtch {
-    state: IAddNoteState;
-    payload: unknown;
-}
+const AddNoteReducer = (() => {
+    return (state: IAddNoteState = init, {type, payload}: IActions<unknown>): IAddNoteState => {
+        const swtch = {
+            [Actions.TEXT_CHANGED]: () => ({
+                ...state,
+                text: CHK.str(payload),
+            }),
 
-const swtch = {
-    case: (state: IAddNoteState = init, {type, payload}: IActions<unknown>): IAddNoteState => {
+            [Actions.ADD_TODO]: () => ({
+                ...state,
+                text: '',
+            }),
+        };
+
         LOG('', payload, '\t', type, 'TestCounterswtch');
         try {
-            return swtch[type]({state, payload} as IAddNoteSwtch);
+            return swtch[type]();
         } catch (e) {
             if (e instanceof TypeError) {
                 return state;
@@ -23,17 +30,7 @@ const swtch = {
                 throw(e);
             }
         }
-    },
+    };
+})();
 
-    [Actions.TEXT_CHANGED]: (prop: IAddNoteSwtch) => ({
-        ...prop.state,
-        text: CHK.str(prop.payload),
-    }),
-
-    [Actions.ADD_TODO]: (prop: IAddNoteSwtch) => ({
-        ...prop.state,
-        text: '',
-    }),
-};
-
-export default swtch.case;
+export default AddNoteReducer;
