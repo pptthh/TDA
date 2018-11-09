@@ -6,31 +6,34 @@ const init: IAddNoteState = {
     text: '',
 };
 
-const AddNoteReducer = (() => {
-    return (state: IAddNoteState = init, {type, payload}: IActions<unknown>): IAddNoteState => {
-        const swtch = {
-            [Actions.TEXT_CHANGED]: () => ({
-                ...state,
-                text: CHK.str(payload),
-            }),
+interface IAddNoteSwtch {
+    state: IAddNoteState;
+    payload: unknown;
+}
 
-            [Actions.ADD_TODO]: () => ({
-                ...state,
-                text: '',
-            }),
-        };
+const swtch = {
+    [Actions.TEXT_CHANGED]: ({state, payload}: IAddNoteSwtch) => ({
+        ...state,
+        text: CHK.str(payload),
+    }),
 
-        LOG('', payload, '\t', type, 'TestCounterswtch');
-        try {
-            return swtch[type]();
-        } catch (e) {
-            if (e instanceof TypeError) {
-                return state;
-            } else {
-                throw(e);
-            }
+    [Actions.ADD_TODO]: ({state}: IAddNoteSwtch) => ({
+        ...state,
+        text: '',
+    }),
+};
+
+const AddNoteReducer = (state: IAddNoteState = init, {type, payload}: IActions<unknown>): IAddNoteState => {
+    LOG('', payload, '\t', type, 'TestCounterswtch');
+    try {
+        return swtch[type]({state, payload} as IAddNoteSwtch);
+    } catch (e) {
+        if (e instanceof TypeError) {
+            return state;
+        } else {
+            throw(e);
         }
-    };
-})();
+    }
+};
 
 export default AddNoteReducer;
