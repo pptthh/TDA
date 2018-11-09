@@ -33,4 +33,5 @@ swtch[Actions.DECREMENT_COUNTER] =
         counter: CHK.int(prop.payload),
     });
 
-export default swtch.case;
+const TestCounterReducer = swtch.case;
+export default TestCounterReducer;

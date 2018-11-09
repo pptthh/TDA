@@ -9,7 +9,7 @@ import AddNoteContainer from './elements/AddNote/container';
 import TestCounterContainer from './elements/TestCounter/container';
 import logo from './logo.svg';
 import store from './reducers/store';
-import './Test.css';
+import './test.css';
 import { LOG } from './utils';
 
 const listData: IList = {
@@ -21,7 +21,7 @@ const listData: IList = {
 
 store.dispatch({type: Actions.INIT});
 
-const App = () =>
+const Test = () =>
 <div className='App'>
     <header className='App-header'>
         <h1 className='App-title'><img src={logo} className='App-logo' alt='logo'/>
@@ -50,4 +50,4 @@ const App = () =>
     <hr/>
 </div>;
 
-export default App;
+export default Test;
