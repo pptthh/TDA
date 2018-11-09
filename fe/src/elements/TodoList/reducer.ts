@@ -6,7 +6,7 @@ const init: ITodoListState = {
     list: [],
 };
 
-interface IAddNoteSwtch {
+interface ITodoListSwitch {
     state: ITodoListState;
     payload: unknown;
 }
@@ -14,9 +14,9 @@ interface IAddNoteSwtch {
 const swtch = {};
 
 const TodoListReducer = (state: ITodoListState = init, {type, payload}: IActions<unknown>): ITodoListState => {
-    LOG('', payload, '\t', type, 'TestCounterswtch');
+    LOG('', payload, '\t', type, 'ITodoListSwitch');
     try {
-        return swtch[type]({state, payload} as IAddNoteSwtch);
+        return swtch[type]({state, payload} as ITodoListSwitch);
     } catch (e) {
         if (e instanceof TypeError) {
             return state;

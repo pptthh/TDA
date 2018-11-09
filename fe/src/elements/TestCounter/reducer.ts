@@ -6,16 +6,16 @@ const init: ICounterState = {
     counter: 0,
 };
 
-interface ITestCounterswtch {
+interface ITestCounterSwitch {
     state: ICounterState;
     payload: unknown;
 }
 
 const swtch = {
     case: (state: ICounterState = init, {type, payload}: IActions<unknown>): ICounterState => {
-        LOG('', payload, '\t', type, 'TestCounterswtch');
+        LOG('', payload, '\t', type, 'ITestCounterSwitch');
         try {
-            return swtch[type]({state, payload} as ITestCounterswtch);
+            return swtch[type]({state, payload} as ITestCounterSwitch);
         } catch (e) {
             if (e instanceof TypeError) {
                 return state;
@@ -28,7 +28,7 @@ const swtch = {
 
 swtch[Actions.INCREMENT_COUNTER] =
 swtch[Actions.DECREMENT_COUNTER] =
-    (prop: ITestCounterswtch) => ({
+    (prop: ITestCounterSwitch) => ({
         ...prop.state,
         counter: CHK.int(prop.payload),
     });

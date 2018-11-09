@@ -6,27 +6,27 @@ const init: IAddNoteState = {
     text: '',
 };
 
-interface IAddNoteSwtch {
+interface IAddNoteSwitch {
     state: IAddNoteState;
     payload: unknown;
 }
 
 const swtch = {
-    [Actions.TEXT_CHANGED]: ({state, payload}: IAddNoteSwtch) => ({
+    [Actions.TEXT_CHANGED]: ({state, payload}: IAddNoteSwitch) => ({
         ...state,
         text: CHK.str(payload),
     }),
 
-    [Actions.ADD_TODO]: ({state}: IAddNoteSwtch) => ({
+    [Actions.ADD_TODO]: ({state}: IAddNoteSwitch) => ({
         ...state,
         text: '',
     }),
 };
 
 const AddNoteReducer = (state: IAddNoteState = init, {type, payload}: IActions<unknown>): IAddNoteState => {
-    LOG('', payload, '\t', type, 'TestCounterswtch');
+    LOG('', payload, '\t', type, 'IAddNoteSwitch');
     try {
-        return swtch[type]({state, payload} as IAddNoteSwtch);
+        return swtch[type]({state, payload} as IAddNoteSwitch);
     } catch (e) {
         if (e instanceof TypeError) {
             return state;
