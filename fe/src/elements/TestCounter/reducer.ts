@@ -6,18 +6,31 @@ export const init: ICounterState = {
     counter: 0,
 };
 
-const TestCounterReducer = (state: ICounterState = init, action: IActions<unknown>): ICounterState => {
-    LOG('', action.payload, '\t', action.type, 'TestCounterReducer');
-    switch (action.type) {
-        case Actions.DECREMENT_COUNTER:
-        case Actions.INCREMENT_COUNTER: {
-            return {
-                ...state,
-                counter: CHK.int(action.payload),
-            };
+interface ITestCounterswtch {
+    state: ICounterState;
+    payload: unknown;
+}
+
+const swtch = {
+    case: (state: ICounterState = init, {type, payload}: IActions<unknown>): ICounterState => {
+        LOG('', payload, '\t', type, 'TestCounterswtch');
+        try {
+            return swtch[type]({state, payload});
+        } catch (e) {
+            if (e instanceof TypeError) {
+                return state;
+            } else {
+                throw(e);
+            }
         }
-    }
-    return state;
+    },
 };
 
-export default TestCounterReducer;
+swtch[Actions.INCREMENT_COUNTER] =
+swtch[Actions.DECREMENT_COUNTER] =
+    (prop: ITestCounterswtch) => ({
+        ...prop.state,
+        counter: CHK.int(prop.payload),
+    });
+
+export default swtch.case;
