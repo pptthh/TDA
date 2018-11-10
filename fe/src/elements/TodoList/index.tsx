@@ -9,12 +9,10 @@ interface ITodoList extends ITodoListState {
 }
 
 const TodoList = ({list}: ITodoList) =>
-<List list={list.map(
-    (value: string, index: number): IListItem => ({
+<List list={list.map((value: string, index: number): IListItem => ({
         text: value,
         time: index,
-    }),
-    )}
+    }))}
 />;
 
 export default TodoList;

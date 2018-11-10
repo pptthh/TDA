@@ -4,25 +4,25 @@ import TextInput from '../../component/TextInput';
 import IAddNoteState from './state';
 
 interface IAddNote extends IAddNoteState {
-    onClick: () => void;
-    onChange: (data: React.ChangeEvent<HTMLInputElement>) => void;
+    addNewNote: () => void;
+    textChanged: (data: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const AddNote = ({
-    onClick,
-    onChange,
+    addNewNote,
+    textChanged,
     text,
 }: IAddNote) =>
 <div className='AddNote'>
     <TextInput
         placeholder='Add Note Here'
-        onChange={ onChange }
+        onChange={ textChanged }
         value={ text }
         />
     <Button
         label='Add Note'
         disabled={ text.length === 0 }
-        onClick={ onClick }
+        onClick={ addNewNote }
         />
 </div>;
 

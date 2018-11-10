@@ -7,6 +7,7 @@ import List, { IList } from './component/List';
 import TextInput from './component/TextInput';
 import AddNoteContainer from './elements/AddNote/container';
 import TestCounterContainer from './elements/TestCounter/container';
+import TodoListContainer from './elements/TodoList/container';
 import logo from './logo.svg';
 import store from './reducers/store';
 import './test.css';
@@ -46,6 +47,11 @@ const Test = () =>
     <hr/>
     <Provider store={store}>
         <TestCounterContainer/>
+    </Provider>
+    <hr/>
+    <hr/>
+    <Provider store={store}>
+        <TodoListContainer/>
     </Provider>
     <hr/>
 </div>;

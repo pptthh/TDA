@@ -6,8 +6,8 @@ import Action from './action';
 const mapStateToProps = (state: IState) => state.addNoteState;
 
 const mapDispatchToProps = (dispatch: Function) => ({
-    onChange: (data: React.ChangeEvent<HTMLInputElement>) => dispatch(Action.onChange(data)),
-    onClick: () => dispatch(Action.onClick()),
+    addNewNote: () => dispatch(Action.addNewNote()),
+    textChanged: (data: React.ChangeEvent<HTMLInputElement>) => dispatch(Action.textChanged(data)),
 });
 
 const AddNoteContainer = connect(
