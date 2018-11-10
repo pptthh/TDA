@@ -25,6 +25,7 @@ const swtch = {
 
 const AddNoteReducer = (state: IAddNoteState = init, {type, payload}: IActions<unknown>): IAddNoteState => {
     LOG('', payload, '\t', type, 'IAddNoteSwitch');
+// fixMe    add this to a util class
     try {
         return swtch[type]({state, payload} as IAddNoteSwitch);
     } catch (e) {

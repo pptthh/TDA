@@ -5,7 +5,7 @@ import ITodoListState from '../elements/TodoList/state';
 interface IState {
     addNoteState: IAddNoteState;
     counterState: ICounterState;
-    todoList: ITodoListState;
+    todoListState: ITodoListState;
 }
 
 export default IState;
