@@ -1,3 +1,5 @@
+import { IActions } from '../actions';
+
 // tslint:disable-next-line
 export const NOOP = () => {};
 
@@ -24,3 +26,23 @@ export const CHK = {
         throw new Error('string casting failed');
     },
 };
+
+export const SWITCH = <State>(
+    CASE: object,
+    init: State,
+) => (
+    (
+        state: State = init,
+        {type, payload}: IActions<unknown>,
+    ): State => {
+        try {
+            return CASE[type]({state, payload});
+        } catch (e) {
+            if (e instanceof TypeError) {
+                return state;
+            } else {
+                throw(e);
+            }
+        }
+    }
+);

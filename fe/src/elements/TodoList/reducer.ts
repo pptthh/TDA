@@ -1,5 +1,5 @@
 import Actions, { IActions } from '../../actions';
-import { CHK, LOG } from '../../utils';
+import { CHK, LOG, SWITCH } from '../../utils';
 import ITodoListState from './state';
 
 const init: ITodoListState = {
@@ -11,17 +11,19 @@ interface ITodoListSwitch {
     payload: unknown;
 }
 
-const swtch = {
-    [Actions.ADD_TODO]: ({state, payload}: ITodoListSwitch) => ({
+const CASES = {
+    [Actions.ADD_TODO]: ({state, payload}: ITodoListSwitch): ITodoListState => ({
         ...state,
         list: state.list.concat(CHK.str(payload)),
     }),
 };
 
-const TodoListReducer = (state: ITodoListState = init, {type, payload}: IActions<unknown>): ITodoListState => {
+const TodoListReducer = SWITCH(CASES, init);
+
+const _TodoListReducer = (state: ITodoListState = init, {type, payload}: IActions<unknown>): ITodoListState => {
     LOG('', payload, '\t', type, 'ITodoListSwitch');
     try {
-        return swtch[type]({state, payload} as ITodoListSwitch);
+        return CASES[type]({state, payload} as ITodoListSwitch);
     } catch (e) {
         if (e instanceof TypeError) {
             return state;
@@ -31,4 +33,5 @@ const TodoListReducer = (state: ITodoListState = init, {type, payload}: IActions
     }
 };
 
+LOG(_TodoListReducer);
 export default TodoListReducer;
