@@ -6,5 +6,5 @@ import TodoListReducer from '../elements/TodoList/reducer';
 export default combineReducers({
     addNoteState: AddNoteReducer,
     counterState: TestCounterReducer,
-    todoList: TodoListReducer,
+    todoListState: TodoListReducer,
 });

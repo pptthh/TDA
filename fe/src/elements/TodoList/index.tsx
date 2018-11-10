@@ -1,11 +1,20 @@
 import * as React from 'react';
-import List, { IList } from '../../component/List';
+import List from '../../component/List';
+import { IListItem } from '../../component/List/listItem';
+import ITodoListState from './state';
 
-interface ITodoList extends IList {
+interface ITodoList extends ITodoListState {
     done: () => void;
-    edit: () => void;
+    // edit: () => void;
 }
 
-const TodoList = ({list}: ITodoList) => <List list={list}/>;
+const TodoList = ({list}: ITodoList) =>
+<List list={list.map(
+    (value: string, index: number): IListItem => ({
+        text: value,
+        time: index,
+    }),
+    )}
+/>;
 
 export default TodoList;
