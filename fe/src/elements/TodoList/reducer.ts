@@ -1,5 +1,5 @@
-import { IActions } from '../../actions';
-import { LOG } from '../../utils';
+import Actions, { IActions } from '../../actions';
+import { CHK, LOG } from '../../utils';
 import ITodoListState from './state';
 
 const init: ITodoListState = {
@@ -11,7 +11,12 @@ interface ITodoListSwitch {
     payload: unknown;
 }
 
-const swtch = {};
+const swtch = {
+    [Actions.ADD_TODO]: ({state, payload}: ITodoListSwitch) => ({
+        ...state,
+        list: state.list.concat(CHK.str(payload)),
+    }),
+};
 
 const TodoListReducer = (state: ITodoListState = init, {type, payload}: IActions<unknown>): ITodoListState => {
     LOG('', payload, '\t', type, 'ITodoListSwitch');

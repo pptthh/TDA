@@ -8,11 +8,15 @@ interface ITodoList extends ITodoListState {
     // edit: () => void;
 }
 
-const TodoList = ({list}: ITodoList) =>
-<List list={list.map((value: string, index: number): IListItem => ({
-        text: value,
-        time: index,
-    }))}
+const TodoListReducer = ({list}: ITodoList) =>
+<List list={
+    list.map(
+        (value: string, index: number): IListItem => ({
+            text: value,
+            time: index,
+        }),
+        )
+    }
 />;
 
-export default TodoList;
+export default TodoListReducer;
