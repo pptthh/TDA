@@ -8,7 +8,7 @@ interface ITodoList extends ITodoListState {
     // edit: () => void;
 }
 
-const TodoListReducer = ({list}: ITodoList) =>
+const TodoList = ({list}: ITodoList) =>
 <List list={
     list.map(
         (value: string, index: number): IListItem => ({
@@ -19,4 +19,4 @@ const TodoListReducer = ({list}: ITodoList) =>
     }
 />;
 
-export default TodoListReducer;
+export default TodoList;

@@ -27,22 +27,35 @@ export const CHK = {
     },
 };
 
-export const SWITCH = <State>(
-    CASE: object,
-    init: State,
+export const REDUX_INIT = '@@INIT';
+
+export interface ICase<T> {
+    state: T;
+    payload: undefined;
+}
+
+export interface ISwitch<T> {
+    [REDUX_INIT]: ({state, payload}: ICase<T>) => T;
+}
+
+export const REDUCER = <StateType>(
+    SWITCH: ISwitch<StateType>,
+    init: StateType,
 ) => (
     (
-        state: State = init,
+        state: StateType = init,
         {type, payload}: IActions<unknown>,
-    ): State => {
+    ): StateType => {
         try {
-            return CASE[type]({state, payload});
+            return SWITCH[type]({state, payload}) as StateType;
         } catch (e) {
             if (e instanceof TypeError) {
-                return state;
-            } else {
-                throw(e);
+                if (state !== undefined) {
+                    return state;
+                }
+                return SWITCH[REDUX_INIT]();
             }
+            throw(e);
         }
     }
 );
