@@ -12,6 +12,10 @@ const SWITCH: ISwitch<ITodoListState> = {
         ...state,
         list: state.list.concat(CHK.str(payload)),
     }),
+    [Actions.DONE_TODO]: ({state, payload}) => ({
+        ...state,
+        list: state.list.filter(s => s !== payload),
+    }),
 };
 
 const TodoListReducer = createReducer(SWITCH, init);

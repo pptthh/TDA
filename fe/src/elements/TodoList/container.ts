@@ -6,7 +6,7 @@ import Action from './action';
 const mapStateToProps = (state: IState) => state.todoListState;
 
 const mapDispatchToProps = (dispatch: Function) => ({
-    done: () => dispatch(Action.done()),
+    done: (data: string) => dispatch(Action.done(data)),
     // edit: () => dispatch(),
 });
 

@@ -1,12 +1,8 @@
 import Actions, { IActions } from '../../actions';
-import store from '../../reducers/store';
-import ITodoListState from './state';
-
-const st = (): ITodoListState => store.getState().todoListState;
 
 const Action = {
-    done: (): IActions<number> =>
-        ({type: Actions.DONE_TODO, payload: st() && 0}),
+    done: (data: string): IActions<string> =>
+        ({type: Actions.DONE_TODO, payload: data}),
 };
 
 export default Action;
