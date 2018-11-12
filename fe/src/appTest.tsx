@@ -22,7 +22,7 @@ const listData: IList = {
 
 store.dispatch({type: Actions.INIT});
 
-const Test = () =>
+const AppTest = () =>
 <div className='App'>
     <header className='App-header'>
         <h1 className='App-title'><img src={logo} className='App-logo' alt='logo'/>
@@ -56,4 +56,4 @@ const Test = () =>
     <hr/>
 </div>;
 
-export default Test;
+export default AppTest;
