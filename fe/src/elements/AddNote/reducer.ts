@@ -1,40 +1,24 @@
-import Actions, { IActions } from '../../actions';
-import { CHK, LOG } from '../../utils';
+import Actions from '../../actions';
+import createReducer, { ISwitch } from '../../reducers/createReducer';
+import { CHK } from '../../utils';
 import IAddNoteState from './state';
 
 const init: IAddNoteState = {
     text: '',
 };
 
-interface IAddNoteSwitch {
-    state: IAddNoteState;
-    payload: unknown;
-}
-
-const swtch = {
-    [Actions.TEXT_CHANGED]: ({state, payload}: IAddNoteSwitch) => ({
+const SWITCH: ISwitch<IAddNoteState> = {
+    [Actions.TEXT_CHANGED]: ({state, payload}) => ({
         ...state,
         text: CHK.str(payload),
     }),
 
-    [Actions.ADD_TODO]: ({state}: IAddNoteSwitch) => ({
+    [Actions.ADD_TODO]: ({state}) => ({
         ...state,
         text: '',
     }),
 };
 
-const AddNoteReducer = (state: IAddNoteState = init, {type, payload}: IActions<unknown>): IAddNoteState => {
-    LOG('', payload, '\t', type, 'IAddNoteSwitch');
-// fixMe    add this to a util class
-    try {
-        return swtch[type]({state, payload} as IAddNoteSwitch);
-    } catch (e) {
-        if (e instanceof TypeError) {
-            return state;
-        } else {
-            throw(e);
-        }
-    }
-};
+const AddNoteReducer = createReducer(SWITCH, init);
 
 export default AddNoteReducer;

@@ -1,5 +1,3 @@
-import { IActions } from '../actions';
-
 // tslint:disable-next-line
 export const NOOP = () => {};
 
@@ -26,36 +24,3 @@ export const CHK = {
         throw new Error('string casting failed');
     },
 };
-
-export const REDUX_INIT = '@@INIT';
-
-export interface ICase<T> {
-    state: T;
-    payload: undefined;
-}
-
-export interface ISwitch<T> {
-    [REDUX_INIT]: ({state, payload}: ICase<T>) => T;
-}
-
-export const REDUCER = <StateType>(
-    SWITCH: ISwitch<StateType>,
-    init: StateType,
-) => (
-    (
-        state: StateType = init,
-        {type, payload}: IActions<unknown>,
-    ): StateType => {
-        try {
-            return SWITCH[type]({state, payload}) as StateType;
-        } catch (e) {
-            if (e instanceof TypeError) {
-                if (state !== undefined) {
-                    return state;
-                }
-                return SWITCH[REDUX_INIT]();
-            }
-            throw(e);
-        }
-    }
-);

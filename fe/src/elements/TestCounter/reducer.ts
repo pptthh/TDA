@@ -1,37 +1,18 @@
-import Actions, { IActions } from '../../actions';
-import { CHK, LOG } from '../../utils';
+import Actions from '../../actions';
+import createReducer, { ISwitch } from '../../reducers/createReducer';
+import { CHK } from '../../utils';
 import ICounterState from './state';
 
 const init: ICounterState = {
     counter: 0,
 };
 
-interface ITestCounterSwitch {
-    state: ICounterState;
-    payload: unknown;
-}
+const SWITCH: ISwitch<ICounterState> = {};
+SWITCH[Actions.INCREMENT_COUNTER] = //  fall trogh
+SWITCH[Actions.DECREMENT_COUNTER] = ({state, payload}) => ({
+    ...state,
+    counter: CHK.int(payload),
+});
 
-const swtch = {
-    case: (state: ICounterState = init, {type, payload}: IActions<unknown>): ICounterState => {
-        LOG('', payload, '\t', type, 'ITestCounterSwitch');
-        try {
-            return swtch[type]({state, payload} as ITestCounterSwitch);
-        } catch (e) {
-            if (e instanceof TypeError) {
-                return state;
-            } else {
-                throw(e);
-            }
-        }
-    },
-};
-
-swtch[Actions.INCREMENT_COUNTER] =
-swtch[Actions.DECREMENT_COUNTER] =
-    (prop: ITestCounterSwitch) => ({
-        ...prop.state,
-        counter: CHK.int(prop.payload),
-    });
-
-const TestCounterReducer = swtch.case;
+const TestCounterReducer = createReducer(SWITCH, init);
 export default TestCounterReducer;
