@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Button from '../../component/Button';
 import Label from '../../component/Label';
 import List from '../../component/List';
 import { IListItem } from '../../component/List/listItem';
@@ -8,20 +9,27 @@ interface ITodoList extends ITodoListState {
     done: () => void;
 }
 
+interface IMap<T> {
+    list: T[];
+    done: Function;
+}
+
 const strToJSX = (
     s: string,
-    onClick: Function,
-) =>
-    <Label onClick={() => onClick(s)}>{s}</Label>;
+    done: Function,
+) => <>
+    <Button label='X' onClick={() => done(s)}/>
+    <Label>{s}</Label>
+</>;
 
-const TodoList = ({list, done}: ITodoList) =>
-<List list={
-    list.map(
-        (value: string, index: number): IListItem => ({
-            text: strToJSX(value, done),
-            time: index,
-        }),
-    )
-}/>;
+const map =
+({list, done}: IMap<string>) =>
+list.map(
+    (value: string, index: number): IListItem => ({
+        text: strToJSX(value, done),
+        time: index,
+    }),
+);
+const TodoList = (props: ITodoList) => <List list={ map(props)}/>;
 
 export default TodoList;
