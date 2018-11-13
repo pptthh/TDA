@@ -14,5 +14,4 @@ SWITCH[Actions.DECREMENT_COUNTER] = ({state, payload}) => ({
     counter: CHK.int(payload),
 });
 
-const TestCounterReducer = createReducer(SWITCH, init);
-export default TestCounterReducer;
+export default createReducer(SWITCH, init);

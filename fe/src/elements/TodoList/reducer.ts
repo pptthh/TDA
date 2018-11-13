@@ -18,6 +18,4 @@ const SWITCH: ISwitch<ITodoListState> = {
     }),
 };
 
-const TodoListReducer = createReducer(SWITCH, init);
-
-export default TodoListReducer;
+export default createReducer(SWITCH, init);

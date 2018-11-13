@@ -19,6 +19,4 @@ const SWITCH: ISwitch<IAddNoteState> = {
     }),
 };
 
-const AddNoteReducer = createReducer(SWITCH, init);
-
-export default AddNoteReducer;
+export default createReducer(SWITCH, init);
