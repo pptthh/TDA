@@ -73,6 +73,7 @@
       "trace"
     ],
     "array-type": [true, "array"],
+    "arrow-return-shorthand": [true, "multiline"],
     "only-arrow-functions": true,
     "no-consecutive-blank-lines": true,
     "no-construct": true,
