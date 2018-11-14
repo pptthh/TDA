@@ -1,6 +1,6 @@
 import { IActions } from '../actions';
 
-interface ICase<T> {
+export interface ICase<T> {
     state: T;
     payload?: unknown;
 }
