@@ -103,6 +103,7 @@
     ],
     "one-variable-per-declaration": true,
     "prefer-const": true,
+    "prefer-method-signature": false,
     "prefer-object-spread": true,
     "quotemark": [ true, "single", "jsx-single", "avoid-escape" ],
     "radix": true,

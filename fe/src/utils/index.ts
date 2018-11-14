@@ -24,3 +24,14 @@ export const CHK = {
         throw new Error('string casting failed');
     },
 };
+
+export enum PropertyType {
+    BOOLEAN= 'boolean',
+    NUMBER= 'number',
+    STRING= 'string',
+}
+CHK[PropertyType.BOOLEAN] = CHK.bool;
+CHK[PropertyType.NUMBER] = CHK.int;
+CHK[PropertyType.STRING] = CHK.str;
+
+export const throwError = (message?: string): never => { throw new Error(message); };

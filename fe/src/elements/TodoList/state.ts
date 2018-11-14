@@ -1,5 +1,10 @@
+export interface ITodoListData {
+    note: string;
+    id: number;
+}
+
 interface ITodoListState {
-    list: string[];
+    list: ITodoListData[];
 }
 
 export default ITodoListState;

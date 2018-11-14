@@ -7,22 +7,22 @@ import ITodoListState from './state';
 configure({adapter: new ReactSixteenAdapter()});
 
 describe('describe TodoList Switch cases', () => {
-    const ITEM = 'ITEM';
+    const ITEM = {note: 'ITEM', id: 222};
     const initState: ITodoListState = {
-        list: ['rtyu', 'tyui', 'yuio', ITEM, 'fghj'],
+        list: [{note: 'rtyu', id: 1}, ITEM, {note: 'fghj', id: 97}],
+    };
+    const expectedState: ITodoListState = {
+        list: [{note: 'rtyu', id: 1}, {note: 'fghj', id: 97}],
     };
 
     it('check DONE_TODO action ' + Actions.DONE_TODO, () => {
         const newState = () => TodoListReducer(
             initState,
             {
-                payload: ITEM,
+                payload: ITEM.id,
                 type: Actions.DONE_TODO,
             },
         );
-        const expectedState: ITodoListState = {
-            list: ['rtyu', 'tyui', 'yuio', 'fghj'],
-        };
 
         expect(newState()).toEqual(expectedState);
     });

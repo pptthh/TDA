@@ -6,8 +6,8 @@ import Action from './action';
 const mapStateToProps = (state: IState) => state.todoListState;
 
 const mapDispatchToProps = (dispatch: Function) => ({
-    done: (data: string) => dispatch(Action.done(data)),
-    // edit: () => dispatch(),
+    done: (data: number) => dispatch(Action.done(data)),
+    edit: (data: number) => dispatch(Action.edit(data)),
 });
 
 const TodoListContainer = connect(

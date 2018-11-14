@@ -10,11 +10,14 @@ const init: ITodoListState = {
 const SWITCH: ISwitch<ITodoListState> = {
     [Actions.ADD_TODO]: ({state, payload}) => ({
         ...state,
-        list: state.list.concat(CHK.str(payload)),
+        list: state.list.concat([{
+            id: new Date().getTime(),
+            note: CHK.str(payload),
+        }]),
     }),
     [Actions.DONE_TODO]: ({state, payload}) => ({
         ...state,
-        list: state.list.filter(s => s !== payload),
+        list: state.list.filter(({id}) => id !== payload),
     }),
 };
 
